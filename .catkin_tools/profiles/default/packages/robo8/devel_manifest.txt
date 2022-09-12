@@ -1,0 +1,5 @@
+robo8
+/home/bharatfih/autobot_ws/devel/.private/robo8/cmake.lock /home/bharatfih/autobot_ws/devel/./cmake.lock
+/home/bharatfih/autobot_ws/devel/.private/robo8/share/robo8/cmake/robo8Config.cmake /home/bharatfih/autobot_ws/devel/share/robo8/cmake/robo8Config.cmake
+/home/bharatfih/autobot_ws/devel/.private/robo8/share/robo8/cmake/robo8Config-version.cmake /home/bharatfih/autobot_ws/devel/share/robo8/cmake/robo8Config-version.cmake
+/home/bharatfih/autobot_ws/devel/.private/robo8/lib/pkgconfig/robo8.pc /home/bharatfih/autobot_ws/devel/lib/pkgconfig/robo8.pc
