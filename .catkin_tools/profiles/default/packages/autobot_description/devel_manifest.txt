@@ -1,5 +1,0 @@
-autobot_description
-/home/bharatfih/autobot_ws/devel/.private/autobot_description/cmake.lock /home/bharatfih/autobot_ws/devel/./cmake.lock
-/home/bharatfih/autobot_ws/devel/.private/autobot_description/share/autobot_description/cmake/autobot_descriptionConfig.cmake /home/bharatfih/autobot_ws/devel/share/autobot_description/cmake/autobot_descriptionConfig.cmake
-/home/bharatfih/autobot_ws/devel/.private/autobot_description/share/autobot_description/cmake/autobot_descriptionConfig-version.cmake /home/bharatfih/autobot_ws/devel/share/autobot_description/cmake/autobot_descriptionConfig-version.cmake
-/home/bharatfih/autobot_ws/devel/.private/autobot_description/lib/pkgconfig/autobot_description.pc /home/bharatfih/autobot_ws/devel/lib/pkgconfig/autobot_description.pc
