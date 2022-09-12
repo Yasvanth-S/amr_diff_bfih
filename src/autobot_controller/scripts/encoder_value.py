@@ -5,15 +5,14 @@
 import rospy
 import Jetson.GPIO as GPIO
 
-#Encoder Left
+#Encoder Left - Use only PULL-UP GPIO PINS!!!
 
-l_encoder_a = 31
+l_encoder_a = 28
 l_encoder_b = 29
 
-#Encoder Right
-
-r_encoder_a = 36
-r_encoder_b = 38
+#Encoder Right - Use only PULL-UP GPIO PINS!!!! 31,12,29
+r_encoder_a = 7
+r_encoder_b = 10
 
 
 GPIO.setmode(GPIO.BOARD)
