@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 
 
 # Common PWM Channel
-motor_pwm = 13
+motor_pwm = 18
 
 # Motor Left
 

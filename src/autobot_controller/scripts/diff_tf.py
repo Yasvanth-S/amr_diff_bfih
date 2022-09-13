@@ -75,7 +75,7 @@ class DiffTf:
         
         #### parameters #######
         self.rate = rospy.get_param('~rate',10.0)  # the rate at which to publish the transform
-        self.ticks_meter = float(rospy.get_param('ticks_meter', 184))  # The number of wheel encoder ticks per meter of travel
+        self.ticks_meter = float(rospy.get_param('ticks_meter', 15200))  # The number of wheel encoder ticks per meter of travel
         self.base_width = float(rospy.get_param('~base_width', 0.47)) # The wheel base width in meters
         
         self.base_frame_id = rospy.get_param('~base_frame_id','base_footprint') # the name of the base frame of the robot
@@ -106,8 +106,8 @@ class DiffTf:
         self.then = rospy.Time.now()
         
         # subscriptions
-        rospy.Subscriber("leftencoder", Int32, self.lwheelCallback)
-        rospy.Subscriber("rightencoder", Int32, self.rwheelCallback)
+        rospy.Subscriber("left_encoder", Int32, self.lwheelCallback)
+        rospy.Subscriber("right_encoder", Int32, self.rwheelCallback)
        # self.test = rospy.Publisher("test",Int32,queue_size=10)
        # self.test1 = rospy.Publisher("test1",Int32,queue_size=10)
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
