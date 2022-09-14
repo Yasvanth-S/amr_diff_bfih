@@ -43,3 +43,4 @@ lasamplestep  : 0.005
 transform_publish_period  : 0.2
 occ_thresh                : 0.25
 
+inverted_laser : false

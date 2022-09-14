@@ -5,7 +5,7 @@
 
  <robot name="autobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
- <xacro:include filename="$(find autobot)/urdf/autobot.gazebo" /> 
+ <xacro:include filename="$(find autobot_description)/urdf/autobot.gazebo" /> 
   
 <link name="base_footprint" />
   <link
@@ -30,7 +30,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/base_link.STL" />
+          filename="package://autobot_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -44,7 +44,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/base_link.STL" />
+          filename="package://autobot_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -77,7 +77,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/lw_Link.STL" />
+          filename="package://autobot_description/meshes/lw_Link.STL" />
       </geometry>
       <material
         name="">
@@ -91,7 +91,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/lw_Link.STL" />
+          filename="package://autobot_description/meshes/lw_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -130,7 +130,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/rw_Link.STL" />
+          filename="package://autobot_description/meshes/rw_Link.STL" />
       </geometry>
       <material
         name="">
@@ -144,7 +144,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/rw_Link.STL" />
+          filename="package://autobot_description/meshes/rw_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -183,7 +183,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/sfw_Link.STL" />
+          filename="package://autobot_description/meshes/sfw_Link.STL" />
       </geometry>
       <material
         name="">
@@ -197,7 +197,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/sfw_Link.STL" />
+          filename="package://autobot_description/meshes/sfw_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -236,7 +236,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/sfw_Link.STL" />
+          filename="package://autobot_description/meshes/sfw_Link.STL" />
       </geometry>
       <material
         name="">
@@ -250,7 +250,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/sfw_Link.STL" />
+          filename="package://autobot_description/meshes/sfw_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -271,7 +271,7 @@
     name="laser">
     <inertial>
       <origin
-        xyz="0 0 -0.0203709532260616"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.307718535381243" />
@@ -289,7 +289,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/laser.STL" />
+          filename="package://autobot_description/meshes/laser.STL" />
       </geometry>
       <material
         name="">
@@ -303,7 +303,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/laser.STL" />
+          filename="package://autobot_description/meshes/laser.STL" />
       </geometry>
     </collision>
   </link>
@@ -311,8 +311,8 @@
     name="laser_j"
     type="fixed">
     <origin
-      xyz="0.23948 -0.0026771 0.33"
-      rpy="0 0 3.14" />
+      xyz="0.18 0.21 0.40"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -342,7 +342,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/camera_Link.STL" />
+          filename="package://autobot_description/meshes/camera_Link.STL" />
       </geometry>
       <material
         name="">
@@ -356,7 +356,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://autobot/meshes/camera_Link.STL" />
+          filename="package://autobot_description/meshes/camera_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -379,14 +379,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://autobot/meshes/imu.STL" />
+        <mesh filename="package://autobot_description/meshes/imu.STL" />
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://autobot/meshes/imu.STL" />
+      <mesh filename="package://autobot_description/meshes/imu.STL" />
       </geometry>
     </visual>
 
