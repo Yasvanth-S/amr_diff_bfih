@@ -128,14 +128,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://autobot_description/meshes/imu.STL" />
+        <mesh filename="package://autobot_description/meshes/imu.STL" scale= "0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://autobot_description/meshes/imu.STL" />
+      <mesh filename="package://autobot_description/meshes/imu.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
@@ -173,7 +173,7 @@
 </joint>
 
 <joint name="imujoint" type="fixed">
-    <origin xyz="0.132 0.26 0.36" rpy="0 0 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="imu_link" />
     <axis xyz="0 0 0" />
