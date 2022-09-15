@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<robot name="bot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="left_trans">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="baselink_leftwheel">
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+</joint>
+<actuator name="left_actr">
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+<mechanicalReduction>1</mechanicalReduction>
+</actuator>
+</transmission>
+
+<transmission name="right_trans">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="baselink_rightwheel">
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+</joint>
+<actuator name="right_actr">
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+<mechanicalReduction>1</mechanicalReduction>
+</actuator>
+</transmission>
+</robot>

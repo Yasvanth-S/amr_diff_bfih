@@ -5,14 +5,14 @@
 <gazebo>
   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
-    <!-- Plugin update rate in Hz -->
-    <updateRate>100</updateRate>
+   <!-- Plugin update rate in Hz -->
+    <updateRate>100.0</updateRate>
 
     <!-- Name of left joint, defaults to `left_joint` -->
-    <leftJoint>left_wheel</leftJoint>
+    <leftJoint>baselink_leftwheel</leftJoint>
 
     <!-- Name of right joint, defaults to `right_joint` -->
-    <rightJoint>right_wheel</rightJoint>
+    <rightJoint>baselink_rightwheel</rightJoint>
 
     <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
     <wheelSeparation>0.470</wheelSeparation>
@@ -38,26 +38,26 @@
     <odometryFrame>odom</odometryFrame>
 
     <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-    <robotBaseFrame>base_link</robotBaseFrame>
+    <robotBaseFrame>base_footprint</robotBaseFrame>
 
     <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-    <odometrySource>0</odometrySource>
+    <odometrySource>1</odometrySource>
 
     <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-    <publishWheelTF>false</publishWheelTF>
+    <publishWheelTF>true</publishWheelTF>
 
     <!-- Set to true to publish transforms for the odometry, defaults to true -->
-    <publishOdom>false</publishOdom>
+    <publishOdom>true</publishOdom>
 
     <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-    <publishWheelJointState>false</publishWheelJointState>
+    <publishWheelJointState>true</publishWheelJointState>
 
     <!-- Set to true to swap right and left wheels, defaults to true -->
     <legacyMode>false</legacyMode>
   </plugin>
 </gazebo>
 
-<gazebo reference="imu_link">
+<!-- <gazebo reference="imu_link">
   <gravity>true</gravity>
   <sensor name="imu_sensor" type="imu">
     <always_on>true</always_on>
@@ -78,5 +78,5 @@
     </plugin>
     <pose>0 0 0 0 0 0</pose>
   </sensor>
-</gazebo>
+</gazebo> -->
 </robot>

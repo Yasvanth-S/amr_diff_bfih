@@ -1,4 +1,4 @@
-?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<param name="robot_description" command="$(find xacro)/xacro '$(find autobot_description)/urdf/autobot.xacro'" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
