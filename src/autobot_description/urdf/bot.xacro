@@ -1,10 +1,31 @@
 <?xml version="1.0" ?>
+
 <robot name="autobot" xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:include filename="$(find autobot_description)/urdf/bot.gazebo" />
+
+<xacro:macro name="box_inertia" params="b_mass b_x b_y b_z">
+        <mass value="${b_mass}"/>
+        <inertia  ixx="${b_mass*(b_y*b_y+b_z*b_z)/12}" ixy = "0" ixz = "0"
+                  iyy="${b_mass*(b_x*b_x+b_z*b_z)/12}" iyz = "0"
+                  izz="${b_mass*(b_x*b_x+b_y*b_y)/12}"/>
+</xacro:macro>
+
+
+<xacro:macro name="cylinder_inertia" params="c_mass r l">
+        <mass value="${c_mass}"/>
+        <inertia  ixx="${c_mass*(3*r*r+l*l)/12}" ixy = "0" ixz = "0"
+                  iyy="${c_mass*(3*r*r+l*l)/12}" iyz = "0"
+                  izz="${c_mass*(r*r)/2}" />
+</xacro:macro>
 
 <link name="base_footprint" />
 
 <link name="base_link" >
-    <visual>
+  <inertial>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
+    <xacro:box_inertia b_mass="17" b_x = "0.72" b_y = "0.40" b_z = "0.28" />
+  </inertial>
+  <visual>
 	<origin xyz = "0 0 0" rpy = "0 0 0" />
         <geometry>
           <box size="0.72 0.40 0.28"/>
@@ -14,6 +35,7 @@
         </material>
       </visual>
       <collision>
+        <origin xyz = "0 0 0" rpy = "0 0 0" />
         <geometry>
           <box size="0.72 0.40 0.28"/>
         </geometry>
@@ -21,6 +43,11 @@
 </link>
 
 <link name="left_wheel" >
+ <origin xyz = "0 0 0" rpy = "0 0 0" />
+  <inertial>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
+    <xacro:cylinder_inertia c_mass = "2" r = "0.08" l = "0.06" />
+    </inertial>
   <visual>
     <origin xyz = "0 0 0" rpy = "0 0 0" />
     <geometry>
@@ -31,6 +58,7 @@
     </material>
   </visual>
   <collision>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
     <geometry>
       <cylinder length="0.06" radius="0.08"/>
     </geometry>
@@ -38,8 +66,13 @@
 </link>
 
 <link name="right_wheel" >
-  <visual>
  <origin xyz = "0 0 0" rpy = "0 0 0" />
+  <inertial>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
+    <xacro:cylinder_inertia c_mass = "2" r = "0.08" l = "0.06" />
+    </inertial>
+  <visual>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
     <geometry>
       <cylinder length="0.06" radius="0.08"/>
     </geometry>
@@ -48,6 +81,7 @@
     </material>
   </visual>
   <collision>
+    <origin xyz = "0 0 0" rpy = "0 0 0" />
     <geometry>
       <cylinder length="0.06" radius="0.08"/>
     </geometry>
@@ -55,18 +89,24 @@
 </link>
 
 <link name="laser" >
-  <visual>
- <origin xyz = "0 0 0" rpy = "0 0 0" />
-      <geometry>
-        <box size="0.08 0.08 0.055"/>
+<origin xyz = "0 0 0" rpy = "0 0 0" />
+<inertial>
+  <mass value="0.09"/>
+      <inertia ixx="4.275e-05" ixy="0" ixz="0" iyy="4.275e-05" iyz="0" izz="5.5125e-05"/>
+</inertial>
+<visual>
+  <origin xyz = "0 0 0" rpy = "0 0 0" />
+       <geometry>
+        <cylinder length = "0.040" radius = "0.030" />
       </geometry>
       <material name="lidar_mat">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
     <collision>
+      <origin xyz = "0 0 0" rpy = "0 0 0" />
       <geometry>
-        <box size="0.08 0.08 0.055"/>
+        <cylinder length = "0.040" radius = "0.030" />
       </geometry>
     </collision>
 </link>
