@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 
 <robot name="autobot" xmlns:xacro="http://ros.org/wiki/xacro">
+
 <xacro:include filename="$(find autobot_description)/urdf/bot.gazebo" />
 
 <xacro:include filename="$(find autobot_description)/urdf/bot.trans" />
@@ -113,15 +114,49 @@
     </collision>
 </link>
 
-<!-- <link name = "front_castor" >
-  <origin xyz = "0 0 0" rpy = "0 0 0" />
-  <visual>
-    <origin xyz = "0 0 0" rpy = "0 0 0" />
+<link name="frontCastor_link">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://autobot_description/meshes/c_wheel.dae" />
+      <mesh filename="package://autobot_description/meshes/castor_wheel.STL" scale= "0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+    <mesh filename="package://autobot_description/meshes/castor_wheel.STL" scale="0.001 0.001 0.001"/>
     </geometry>
   </visual>
-</link> -->
+
+  <inertial>
+    <mass value="0.30" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+  </inertial>
+</link>
+
+<link name="backCastor_link">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://autobot_description/meshes/castor_wheel.STL" scale= "0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+    <mesh filename="package://autobot_description/meshes/castor_wheel.STL" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+
+  <inertial>
+    <mass value="0.30" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+  </inertial>
+</link>
 
 <!-- IMU -->
   <link name="imu_link">
@@ -173,10 +208,22 @@
 </joint>
 
 <joint name="imujoint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0.228 -0.008 0" rpy="1.57 0 1.57" />
     <parent link="base_link" />
     <child link="imu_link" />
     <axis xyz="0 0 0" />
+</joint>
+
+<joint name="frontCastor_joint" type="continuous" >
+    <origin xyz = "0.30 0 -0.14" rpy = "0 0 0" />
+    <parent link="base_link" />
+    <child link ="frontCastor_link" />
+</joint>
+
+<joint name="backCastor_joint" type="continuous" >
+  <origin xyz = "-0.30 0 -0.14" rpy = "0 0 0" />
+  <parent link="base_link" />
+  <child link ="backCastor_link" />
 </joint>
 
 </robot>

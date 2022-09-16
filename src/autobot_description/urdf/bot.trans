@@ -22,4 +22,27 @@
 <mechanicalReduction>1</mechanicalReduction>
 </actuator>
 </transmission>
+
+<!-- <transmission name="f_castor_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="frontCastor_joint">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fc_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+</transmission>
+
+<transmission name="b_castor_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="backCastor_joint">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="bc_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+</transmission> -->
+
 </robot>
