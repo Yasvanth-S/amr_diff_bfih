@@ -1,0 +1,38 @@
+#Filter Parameters
+
+min_particles: 500 #Min allowed number of particles
+max_particles: 2000 #Max allowed number of particles
+kld_err: 0.05 #Maximum error between true distribution and estimated distribution
+kld_z: 0.99
+resample_interval: 1 #Number of filter updates required before sampling
+transfrom_tolerance: 1.0 #Time with which to post-date the transform that is published
+recovery_alpha_slow: 0.0 #Slow average weight filter, help to decide when to recover by adding random poses
+recovery_alpha_fast: 0.0 #Fast average weight filter, help to decide when to recover by adding random poses
+initial_pose_x: 5 #Initial pose x for partical distribution
+initial_pose_y: -4 #Initial pose y for partical distribution
+initial_pose_a: 3.14 #Initial poso a(yaw) for partical distributiongui_publish_rate: 10.0 #Publish rate at which scan and paths are published for visualization
+use_map_topic: true #Subscribes to map topic instead of making a service call to receive map
+selective_resampling: true #Reduce resampling rate when not need to avoid particle deprivation
+
+# Laser Model Parameters
+
+laser_max_beams: 60 #Evenly spaced beams in each scan to be used when updating the filter
+laser_z_hit: 0.5
+laser_z_short: 0.05
+laser_z_max: 0.05
+laser_z_rand: 0.5
+laser_sigma_hit: 0.2
+laser_lambda_short: 0.1
+laser_model_type: likelihood_field
+
+#Odom Parameters
+
+odom_model_type: diff-corrected
+odom_alpha1: 0.005
+odom_alpha2: 0.005
+odom_aplha3: 0.01
+odom_alpha4: 0.005
+odom_frame_id: odom
+base_frame_id: base_footprint
+global_frame_id: map
+tf_broadcast: true

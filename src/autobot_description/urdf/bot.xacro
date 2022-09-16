@@ -4,8 +4,6 @@
 
 <xacro:include filename="$(find autobot_description)/urdf/bot.gazebo" />
 
-<xacro:include filename="$(find autobot_description)/urdf/bot.trans" />
-
 <xacro:macro name="box_inertia" params="b_mass b_x b_y b_z">
         <mass value="${b_mass}"/>
         <inertia  ixx="${b_mass*(b_y*b_y+b_z*b_z)/12}" ixy = "0" ixz = "0"

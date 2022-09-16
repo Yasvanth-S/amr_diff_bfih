@@ -3,7 +3,6 @@
 <robot name="autobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-  
     </plugin>
   </gazebo>
 <gazebo>
@@ -48,7 +47,7 @@
     <odometrySource>1</odometrySource>
 
     <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-    <publishWheelTF>true</publishWheelTF>
+    <publishWheelTF>false</publishWheelTF>
 
     <!-- Set to true to publish transforms for the odometry, defaults to true -->
     <publishOdom>true</publishOdom>
@@ -58,6 +57,7 @@
 
     <!-- Set to true to swap right and left wheels, defaults to true -->
     <legacyMode>false</legacyMode>
+
   </plugin>
 </gazebo>
 
@@ -94,8 +94,8 @@
         <horizontal>
           <samples>720</samples>
           <resolution>1</resolution>
-          <min_angle>-1.57</min_angle>
-          <max_angle>1.57</max_angle>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
         </horizontal>
       </scan>
       <range>
