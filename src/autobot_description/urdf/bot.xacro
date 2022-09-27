@@ -26,7 +26,7 @@
     <origin xyz = "0 0 0" rpy = "0 0 0" />
     <xacro:box_inertia b_mass="17" b_x = "0.72" b_y = "0.40" b_z = "0.28" />
   </inertial>
-  <visual>
+  <!-- <visual>
 	<origin xyz = "0 0 0" rpy = "0 0 0" />
         <geometry>
           <box size="0.72 0.40 0.28"/>
@@ -34,7 +34,7 @@
         <material name="base_material">
           <color rgba="0 1 0 1"/>
         </material>
-      </visual>
+      </visual> -->
       <collision>
         <origin xyz = "0 0 0" rpy = "0 0 0" />
         <geometry>
@@ -206,7 +206,7 @@
 </joint>
 
 <joint name="imujoint" type="fixed">
-    <origin xyz="0.228 -0.008 0" rpy="1.57 0 1.57" />
+    <origin xyz="0.216 0 0.116" rpy="1.57 0 1.57" />
     <parent link="base_link" />
     <child link="imu_link" />
     <axis xyz="0 0 0" />
