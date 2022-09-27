@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+    <arg name="world_name" value="$(find autobot_simulation)/worlds/amr_world.world" />
+
+    <arg name="paused" value="false" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="gui" value="true" />
+    <arg name="recording" value="false" />
+    <arg name="debug" value="false" />
+
+  </include>
+
+    <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find autobot_description)/urdf/bot.xacro'" />
+
+ <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x 5 -y -4 -z 0 -Y -3.14 -urdf -model autobot -param robot_description" />
+
+ <!-- Publishes joint positions - Joint state publisher -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Uses URDF and Joint positions to compute transforms of robot -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    </node>
+
+  <!-- Gmapping pacakge for mapping  -->
+
+  <!-- <node name="gmapping" pkg="gmapping" type="slam_gmapping" output="screen"> -->
+  <!--   <remap from="scan" to="/scan" /> -->
+  <!--   <rosparam file="$(find autobot_simulation)/config/gmapping.yaml" command="load" /> -->
+  <!-- </node> -->
+
+ <!-- Map Server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="'$(find autobot_simulation)/maps/area.yaml'" />
+
+  <!-- AMCL node -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=/scan" >
+    <rosparam file="$(find autobot_simulation)/config/amcl.yaml" command="load" />
+  </node>
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <rosparam file="$(find autobot_simulation)/config/costmap_common_params.yaml"
+    command="load" ns="global_costmap" />
+    <rosparam file="$(find autobot_simulation)/config/costmap_common_params.yaml"
+    command="load" ns="local_costmap" />
+    <rosparam file="$(find autobot_simulation)/config/local_costmap_params.yaml"
+    command="load" />
+    <rosparam file="$(find autobot_simulation)/config/global_costmap_params.yaml"
+    command="load" />
+    <rosparam file="$(find autobot_simulation)/config/global_planner_params.yaml"
+    command="load" />
+    <rosparam file="$(find autobot_simulation)/config/move_base_params.yaml"
+    command="load" />
+    <!-- GLOBAL PLANNERS -->
+    <!-- <param name="base_global_planner" value="navfn/NavfnROS" /> -->
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <!-- LOCAL PLANNERS -->
+    <rosparam file="$(find autobot_simulation)/config/dwa_local_planner.yaml" command="load" />
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+  </node>
+
+  <!-- Launch Rviz and config file -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find autobot_simulation)/config/amr_movebase.rviz" />
+
+</launch>
