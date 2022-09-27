@@ -22,7 +22,7 @@
 	<node pkg="autobot_controller" type="diff_tf.py" name="diff_tf" output="screen" />
 		<!-- AMCL node -->
 	<node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=/scan">
-    <rosparam file="$(find autobot_navigation)/config/amcl.yaml" command="load" />
+	    <rosparam file="$(find autobot_navigation)/config/amcl.yaml" command="load" />
 	</node>
 
 
