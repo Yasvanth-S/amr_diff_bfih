@@ -202,7 +202,7 @@
 <joint name="baselink_lidar" type="fixed" >
   <parent link = "base_link"/>
   <child link = "laser" />
-  <origin xyz = "0.18 0 0.16" rpy = "0 3.14 0" />
+  <origin xyz = "0.18 0 0.16" rpy = "3.14 3.14 0" />
 </joint>
 
 <joint name="imujoint" type="fixed">

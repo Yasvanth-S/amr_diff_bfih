@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<param name="robot_description" command="$(find xacro)/xacro '$(find autobot_description)/urdf/autobot.xacro'" />
+	<param name="robot_description" command="$(find xacro)/xacro '$(find autobot_description)/urdf/bot.xacro'" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
@@ -12,19 +12,17 @@
 		<param name="angle_compensate"    type="bool"   value="true"/>
 	</node>
 	<node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_notors" output="screen" >
-		<param name="port" type="string" value="/dev/ttyACM0" />
+		<param name="port" type="string" value="/dev/ttyUSB1" />
 		<param name="baud" type="int" value="57600" />
 	</node>
-	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
-		<rosparam file="$(find autobot)/config/gmapping.yaml" command="load"/>
-	</node>
+	<node pkg="map_server" name="map_server" type="map_server" args="'$(find autobot_navigation)/maps/map.yaml'" />
 	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen" />
 	<node type="rviz" name="rviz" pkg="rviz"
 		args="-d $(find autobot_navigation)/config/rviz.rviz" />
 	<node pkg="autobot_controller" type="diff_tf.py" name="diff_tf" output="screen" />
 		<!-- AMCL node -->
-	<node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=/ebot/laser/scan">
-    <rosparam file="$(find autobot_simulation)/config/amcl.yaml" command="load" />
+	<node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=/scan">
+	    <rosparam file="$(find autobot_navigation)/config/amcl.yaml" command="load" />
 	</node>
 
 
