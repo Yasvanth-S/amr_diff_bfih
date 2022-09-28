@@ -30,9 +30,9 @@ class tf_imu:
 		self.x += msg.linear_acceleration.x
 		self.y += msg.linear_acceleration.y
 		self.z += msg.linear_acceleration.z
-		#t.transform.translation.x = 0
-		#t.transform.translation.y = 0
-		#t.transform.translation.z = 0
+		t.transform.translation.x = 0
+		t.transform.translation.y = 0
+		t.transform.translation.z = 0
 		t.transform.rotation.x = msg.orientation.x
 		t.transform.rotation.y = msg.orientation.y
 		t.transform.rotation.z = msg.orientation.z

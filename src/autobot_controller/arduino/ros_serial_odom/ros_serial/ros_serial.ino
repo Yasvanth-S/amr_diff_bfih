@@ -1,6 +1,3 @@
-//Code Authors:
-//* Ahmed A. Radwan (author)
-//* Maisa Jazba 
 #include <ArduinoHardware.h>
 #include <ros.h>
 #include <geometry_msgs/Twist.h>
@@ -8,15 +5,15 @@
 #include <std_msgs/UInt32.h>
 
 //right motor
-int EL_right = 5; //Start=High, Stop=Low
-int ZF_right = 4; //Direction CW=High, CCW=Low
+int BRK_right = 30; 
+int ZF_right = 31; //Direction CW=High, CCW=Low
 int encoder_r_a = 2;
 int encoder_r_b = 3;
 int VR_Speed_right = 8;
 
 //left motor
-int EL_left = 6; //Start=High, Stop=Low
-int ZF_left = 7; //Direction CW=High, CCW=Low
+int BRK_left = 32; 
+int ZF_left = 33; //Direction CW=High, CCW=Low
 int encoder_l_a = 18;
 int encoder_l_b = 19;
 int VR_Speed_left = 9;
@@ -40,7 +37,7 @@ int lastLSB_r = 0;
 
 double w_r=0, w_l=0;
 //wheel_rad is the wheel radius ,wheel_sep is
-double wheel_rad = 0.160, wheel_sep = 0.600;
+double wheel_rad = 7.7, wheel_sep = 0.47;
 ros::NodeHandle nh;
 int lowSpeed = 200;
 int highSpeed = 50;
@@ -76,8 +73,8 @@ void updateEncoder_r(){
 void messageCb( const geometry_msgs::Twist& msg){
   speed_ang = msg.angular.z;
   speed_lin = msg.linear.x;
-  w_r = (speed_lin/wheel_rad) + ((speed_ang*wheel_sep)/(2.0*wheel_rad));
-  w_l = (speed_lin/wheel_rad) - ((speed_ang*wheel_sep)/(2.0*wheel_rad));
+  w_r = (speed_lin/wheel_rad) + ((speed_ang*wheel_sep)/wheel_rad);
+  w_l = (speed_lin/wheel_rad) - ((wheel_sep*speed_ang)/wheel_rad);
 }
 
 
@@ -100,13 +97,16 @@ void setup(){
   nh.advertise(rightpub);
 }
 void loop(){
- MotorL(w_l*20);
- MotorR(w_r*20);
+ MotorL(w_l*255);
+ MotorR(w_r*255);
 
  right_msg.data = encoderValue_r;
  left_msg.data = encoderValue_l;
  leftpub.publish( &left_msg );
  rightpub.publish( &right_msg );
+   Serial.println("w_r=");
+  Serial.println(w_r);
+
  Serial.print("Left:");
  Serial.println(encoderValue_l);
  Serial.print("Right:");
@@ -118,22 +118,22 @@ void loop(){
 }
 void Motors_init(){
 
-  pinMode(EL_right, OUTPUT);
+  pinMode(BRK_right, OUTPUT);
   pinMode(ZF_right, OUTPUT);
   pinMode(VR_Speed_right, OUTPUT);
 
   
-  pinMode(EL_left, OUTPUT);
+  pinMode(BRK_left, OUTPUT);
   pinMode(ZF_left, OUTPUT);
   pinMode(VR_Speed_left, OUTPUT);
   
 
-  pinMode(EL_right, LOW);
+  pinMode(BRK_right,HIGH);
 
   pinMode(VR_Speed_right, LOW);
 
   
-  pinMode(EL_left, LOW);
+  pinMode(BRK_left, HIGH);
 
   pinMode(VR_Speed_left, LOW);
 
@@ -153,13 +153,15 @@ void Motors_init(){
   attachInterrupt(0, updateEncoder_r, CHANGE); 
   attachInterrupt(1, updateEncoder_r, CHANGE);
 }
+
 void MotorR(int Pulse_Width1){
-//sp=-10;
+
    nh.spinOnce();
+   Serial.println(Pulse_Width1);
 
  if (Pulse_Width1 > 0){
   
-     digitalWrite(EL_right, HIGH); 
+   digitalWrite(BRK_right, LOW); 
      digitalWrite(ZF_right, LOW);
      analogWrite(VR_Speed_right, Pulse_Width1);
 
@@ -169,7 +171,7 @@ void MotorR(int Pulse_Width1){
  if (Pulse_Width1 < 0){
      Pulse_Width1=abs(Pulse_Width1);
 
-     digitalWrite(EL_right, HIGH); 
+   digitalWrite(BRK_right, LOW); 
      digitalWrite(ZF_right, HIGH);
      analogWrite(VR_Speed_right, Pulse_Width1);
 
@@ -177,10 +179,10 @@ void MotorR(int Pulse_Width1){
 
 
  }
- if (Pulse_Width1 == 0){
+ else if (Pulse_Width1 == 0){
 
-       digitalWrite(EL_right, LOW); 
-     digitalWrite(ZF_right, HIGH);
+   digitalWrite(BRK_right, HIGH); 
+     digitalWrite(ZF_right, LOW);
      analogWrite(VR_Speed_right, Pulse_Width1);
 
    nh.spinOnce();
@@ -193,10 +195,9 @@ void MotorR(int Pulse_Width1){
 void MotorL(int Pulse_Width2){
  nh.spinOnce();
 
- // sp=-10;
  if (Pulse_Width2 > 0){
   
-     digitalWrite(EL_left, HIGH);
+     digitalWrite(BRK_left, LOW);
      digitalWrite(ZF_left, HIGH);
      analogWrite(VR_Speed_left, Pulse_Width2);
 
@@ -207,7 +208,7 @@ void MotorL(int Pulse_Width2){
  }
  if (Pulse_Width2 < 0){
      Pulse_Width2=abs(Pulse_Width2);
-     digitalWrite(EL_left, HIGH);
+     digitalWrite(BRK_left, LOW);
      digitalWrite(ZF_left, LOW);
      analogWrite(VR_Speed_left, Pulse_Width2);
 
@@ -217,14 +218,12 @@ void MotorL(int Pulse_Width2){
 
 
  }
- if (Pulse_Width2 == 0){
+ else if (Pulse_Width2 == 0){
      analogWrite(VR_Speed_left, Pulse_Width2);
-     digitalWrite(EL_left, LOW);
+    digitalWrite(BRK_left, HIGH);
      digitalWrite(ZF_left, LOW);
 
         nh.spinOnce();
-
-    
 
  }
 }

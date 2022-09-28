@@ -110,7 +110,7 @@ class DiffTf:
         rospy.Subscriber("right_encoder", Int32, self.rwheelCallback)
        # self.test = rospy.Publisher("test",Int32,queue_size=10)
        # self.test1 = rospy.Publisher("test1",Int32,queue_size=10)
-        self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
+        self.odomPub = rospy.Publisher("odom", Odometry, queue_size=1000)
         self.odomBroadcaster = TransformBroadcaster()
         
     #############################################################################
@@ -187,6 +187,13 @@ class DiffTf:
             odom.twist.twist.linear.x = self.dx
             odom.twist.twist.linear.y = 0
             odom.twist.twist.angular.z = self.dr
+	    for i in range(36):
+                if i == 0 or i == 7 or i == 14:
+      		    odom.pose.covariance[i] = .01
+     		elif i == 21 or i == 28 or i== 35: 
+       		    odom.pose.covariance[i] = odom.pose.covariance[i] + 0.1
+     		else:
+       		    odom.pose.covariance[i] = 0
             self.odomPub.publish(odom)
             
             
