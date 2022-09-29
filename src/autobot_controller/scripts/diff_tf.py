@@ -187,13 +187,13 @@ class DiffTf:
             odom.twist.twist.linear.x = self.dx
             odom.twist.twist.linear.y = 0
             odom.twist.twist.angular.z = self.dr
-	    for i in range(36):
+            for i in range(36):
                 if i == 0 or i == 7 or i == 14:
-      		    odom.pose.covariance[i] = .01
-     		elif i == 21 or i == 28 or i== 35: 
-       		    odom.pose.covariance[i] = odom.pose.covariance[i] + 0.1
-     		else:
-       		    odom.pose.covariance[i] = 0
+                    odom.pose.covariance[i] = .01
+                elif i == 21 or i == 28 or i== 35: 
+                    odom.pose.covariance[i] = odom.pose.covariance[i] + 0.1
+                else:
+                    odom.pose.covariance[i] = 0
             self.odomPub.publish(odom)
             
             
