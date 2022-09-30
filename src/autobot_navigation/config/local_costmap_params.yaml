@@ -6,7 +6,7 @@ local_costmap:
   transform_tolerance: 0.5
   static_map: false
   rolling_window: true
-  footprint: [[0.36, 0.20], [0.36, -0.20], [-0.36, -0.20], [-0.36, 0.20]]
+  footprint: [[0.50, 0.30], [0.50, -0.30], [-0.50, -0.30], [-0.50, 0.30]]
   footprint_padding: 0.0
   width: 2
   height: 2
