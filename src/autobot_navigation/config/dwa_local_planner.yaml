@@ -1,16 +1,16 @@
 DWAPlannerROS:
-  acc_lim_th: 1.6
-  acc_lim_x: 5.0
-  acc_lim_trans: 5.0
+  acc_lim_th: 5.0
+  acc_lim_x: 6.0
+  acc_lim_trans: 6.0
 
-  max_vel_x: 0.8
-  min_vel_x: -0.8
+  max_vel_x: 0.6
+  min_vel_x: -0.6
 
-  max_vel_trans: 0.8
-  min_vel_trans: -0.8
+  max_vel_trans: 0.6
+  min_vel_trans: -0.6
 
-  max_vel_theta: 1.6
-  min_vel_theta: -1.6
+  max_vel_theta: o.7
+  min_vel_theta: -o.7
 
   sim_time: 0.8
   #sim_granularity: 0.025
