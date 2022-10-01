@@ -1,22 +1,22 @@
 DWAPlannerROS:
   acc_lim_th: 5.0
-  acc_lim_x: 6.0
-  acc_lim_trans: 6.0
+  acc_lim_x: 5.0
+  acc_lim_trans: 5.0
 
-  max_vel_x: 0.6
-  min_vel_x: -0.6
+  max_vel_x: 0.5
+  min_vel_x: -0.5
 
-  max_vel_trans: 0.6
-  min_vel_trans: -0.6
+  max_vel_trans: 0.5
+  min_vel_trans: -0.5
 
-  max_vel_theta: o.7
-  min_vel_theta: -o.7
+  max_vel_theta: 0.5
+  min_vel_theta: -0.5
 
-  sim_time: 0.8
+  sim_time: 1.0
   #sim_granularity: 0.025
-  vx_samples: 30
+  vx_samples: 40
   #vy samples: 0
-  vtheta_samples: 40
+  vtheta_samples: 50
 
   #goal_distance_bias: 10.0
   #path_distance_bias: 32.0
@@ -32,6 +32,6 @@ DWAPlannerROS:
 
   #sim_period: 0.1
 
-  xy_goal_tolerance: 0.3 #meter
-  yaw_goal_tolerance: 0.8 #radians
+  xy_goal_tolerance: 0.2 #meter
+  yaw_goal_tolerance: 0.3 #radians
   #latch_xy_goal_tolerance: false

@@ -6,7 +6,7 @@ local_costmap:
   transform_tolerance: 0.5
   static_map: false
   rolling_window: true
-  footprint: [[0.50, 0.30], [0.50, -0.30], [-0.50, -0.30], [-0.50, 0.30]]
+  footprint: [[0.60, 0.40], [0.60, -0.40], [-0.60, -0.40], [-0.60, 0.40]]
   footprint_padding: 0.0
   width: 2
   height: 2
@@ -24,6 +24,6 @@ local_costmap:
         
 
   inflation:
-    inflation_radius: 0.3
-    cost_scaling_factor: 10.0 # larger number = lower cost elevation
+    inflation_radius: 0.4
+    cost_scaling_factor: 20.0 # larger number = lower cost elevation
 
