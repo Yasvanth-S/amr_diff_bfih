@@ -3,4 +3,10 @@
   <node pkg = "robot_localization" name = "ekf_localization" type = "ekf_localization_node" >
     <rosparam command="load" file="$(find autobot_localisation)/config/localization.yaml" />
 </node>
+  <node name="imu_node" pkg="autobot_localisation" type="imu_node.py" />
+  <node name="imu_filter_node_for_orientation" pkg="imu_complementary_filter" type="complementary_filter_node" >
+<param name="fixed_frame" type="string" value="base_link" />      
+<param name="publish_tf" type="bool" value="true" />
+  </node>
+
 </launch>
