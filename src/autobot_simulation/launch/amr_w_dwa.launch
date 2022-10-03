@@ -63,4 +63,9 @@
   <!-- Launch Rviz and config file -->
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find autobot_simulation)/config/amr_movebase.rviz" />
 
+  <node pkg="pointcloud_to_laserscan" name="pointcloud2laserscan" type = "pointcloud_to_laserscan_node" args = "cloud_in:=/d435/depth/points" >
+    <remap from = "/scan" to = "/cam_scan" />
+    <rosparam file="$(find autobot_simulation)/config/pcl_lscn.yaml" command="load" />
+    </node>
+
 </launch>
