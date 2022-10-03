@@ -73,8 +73,8 @@ void updateEncoder_r(){
 void messageCb( const geometry_msgs::Twist& msg){
   speed_ang = msg.angular.z;
   speed_lin = msg.linear.x;
-  w_r = (speed_lin/wheel_rad) + ((speed_ang)/(wheel_rad));
-  w_l = (speed_lin/wheel_rad) - ((speed_ang)/(wheel_rad));
+  w_r = (speed_lin/wheel_rad) + ((speed_ang*0.8)/(wheel_rad));
+  w_l = (speed_lin/wheel_rad) - ((speed_ang*0.8)/(wheel_rad));
 }
 
 

@@ -67,6 +67,8 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
+        d435_link:
+          Value: true
         frontCastor_link:
           Value: true
         imu_link:
@@ -81,6 +83,8 @@ Visualization Manager:
           Value: true
         right_wheel:
           Value: true
+        t265_link:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -93,6 +97,8 @@ Visualization Manager:
               base_link:
                 backCastor_link:
                   {}
+                d435_link:
+                  {}
                 frontCastor_link:
                   {}
                 imu_link:
@@ -102,6 +108,8 @@ Visualization Manager:
                 left_wheel:
                   {}
                 right_wheel:
+                  {}
+                t265_link:
                   {}
       Update Interval: 0
       Value: true
@@ -152,7 +160,7 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        Link Tree Style: ""
+        Link Tree Style: Links in Alphabetic Order
         backCastor_link:
           Alpha: 1
           Show Axes: false
@@ -163,6 +171,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d435_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -188,6 +201,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        t265_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -233,6 +251,37 @@ Visualization Manager:
           Unreliable: false
           Use Timestamp: false
           Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /move_base/NavfnROS/plan
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Class: rviz/Polygon
+          Color: 25; 255; 0
+          Enabled: true
+          Name: Polygon
+          Topic: /move_base/global_costmap/footprint
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: Global
     - Class: rviz/Group
@@ -250,7 +299,7 @@ Visualization Manager:
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
-          Color: 25; 255; 0
+          Color: 50; 40; 150
           Enabled: true
           Head Diameter: 0.30000001192092896
           Head Length: 0.20000000298023224
@@ -270,31 +319,16 @@ Visualization Manager:
           Topic: /move_base/DWAPlannerROS/local_plan
           Unreliable: false
           Value: true
+        - Alpha: 1
+          Class: rviz/Polygon
+          Color: 25; 255; 0
+          Enabled: true
+          Name: Polygon
+          Topic: /move_base/local_costmap/footprint
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: Local
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 25; 255; 0
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Path
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /move_base/NavfnROS/plan
-      Unreliable: false
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -323,25 +357,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.43058967590332
+      Distance: 9.694700241088867
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 5.172708511352539
+        Y: 1.169445276260376
+        Z: 1.470895528793335
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4247963428497314
+      Pitch: 1.194796085357666
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.17039772868156433
+      Yaw: 0.5122135877609253
     Saved: ~
 Window Geometry:
   Displays:

@@ -1,15 +1,17 @@
 local_costmap:
-  update_frequency: 2
-  publish_frequency: 1
+  update_frequency: 5
+  publish_frequency: 5
   global_frame: map
   robot_base_frame: base_footprint
   transform_tolerance: 0.5
   static_map: false
   rolling_window: true
-  footprint: [[0.60, 0.40], [0.60, -0.40], [-0.60, -0.40], [-0.60, 0.40]]
+  resolution: 0.1
+  footprint: [[0.45, 0.25], [0.45, -0.25], [-0.45, -0.25], [-0.45, 0.25]]
   footprint_padding: 0.0
-  width: 2
-  height: 2
+  robot_radius: 0.5
+  width: 5
+  height: 5
   plugins:
        - {name: static_map,             type: "costmap_2d::StaticLayer"}
        - {name: inflation_layer,        type: "costmap_2d::InflationLayer"}
@@ -17,12 +19,9 @@ local_costmap:
   static:        
     map_topic: /move_base/local_costmap/costmap
     subscribe_to_updates: true
-
   obstacle_layer:
     observation_sources: laser
-    laser: {data_type: LaserScan, sensor_frame: laser, topic: /scan, marking: true, clearing: true, min_obstacle_height: -0.05, obstacle_range: 5.5, raytrace_range: 6.0, inf_is_valid: true}
-        
-
+    laser: {data_type: LaserScan, sensor_frame: laser, topic: /scan, marking: true, clearing: true, min_obstacle_height: -0.05, obstacle_range: 1.0, raytrace_range: 6.0, inf_is_valid: true}    
   inflation:
     inflation_radius: 0.4
     cost_scaling_factor: 20.0 # larger number = lower cost elevation
