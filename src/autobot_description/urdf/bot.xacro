@@ -205,7 +205,7 @@
 
   <!-- Camera D435i link -->
 
-    <link name="d435_link">
+    <link name="camera_link">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -281,7 +281,7 @@
 <joint name="d435_joint" type="fixed" >
   <origin xyz = "0.395 0 -0.065" rpy = "0 0 0" />
   <parent link="base_link" />
-  <child link ="d435_link" />
+  <child link ="camera_link" />
 </joint>
 
 <joint name="depth_joint" type="fixed" >
