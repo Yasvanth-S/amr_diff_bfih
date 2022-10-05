@@ -1,13 +1,25 @@
 global_costmap:
-  update_frequency: 2.5
-  publish_frequency: 2.5
+  update_frequency: 5
+  publish_frequency: 5
+  global_frame: map
+  robot_base_frame: base_footprint
   transform_tolerance: 0.5
-  width: 0
-  height: 0
-  origin_x: 0
-  origin_y: 0
   rolling_window: false
-  inflation_radius: 2.5
-  resolution: 0.1
+  track_unknown_space: true
+  robot_radius: 0.5
+  footprint_padding: 0.01
+  footprint: [[0.80, 0.60], [0.80, -0.60], [-0.80, -0.60], [-0.80, 0.60]]
   plugins:
-   - {name: static_layer,        type: "costmap_2d::StaticLayer"}
+      - {name: static_map,             type: "costmap_2d::StaticLayer"}
+      - {name: inflation_layer,        type: "costmap_2d::InflationLayer"}
+      - {name: obstacle_layer,         type: "costmap_2d::ObstacleLayer"}
+  static:
+    map_topic: /map
+    subscribe_to_updates: true
+
+  sensor:
+    observation_sources: laser
+    laser: {sensor_frame: laser, data_type: LaserScan, topic: /scan, marking: True, clearing: True, obstacle_range: 3.0, raytrace_range: 6.0, inf_is_valid: True}
+  inflation:
+    inflation_radius: 0.4
+    cost_scaling_factor: 20.0
