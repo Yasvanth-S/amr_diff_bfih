@@ -10,9 +10,9 @@ resample_interval: 1 #Number of filter updates required before sampling
 transfrom_tolerance: 0.5 #Time with which to post-date the transform that is published
 recovery_alpha_slow: 0.001 #Slow average weight filter, help to decide when to recover by adding random poses
 recovery_alpha_fast: 0.01 #Fast average weight filter, help to decide when to recover by adding random poses
-initial_pose_x: -1.1 #Initial pose x for partical distribution
-initial_pose_y: 0.18 #Initial pose y for partical distribution
-initial_pose_a: 1.3 #Initial poso a(yaw) for partical distributiongui_publish_rate: 10.0 #Publish rate at which scan and paths are published for visualization
+initial_pose_x: 0 #Initial pose x for partical distribution
+initial_pose_y: 0 #Initial pose y for partical distribution
+initial_pose_a: 0 #Initial poso a(yaw) for partical distributiongui_publish_rate: 10.0 #Publish rate at which scan and paths are published for visualization
 use_map_topic: true #Subscribes to map topic instead of making a service call to receive map
 selective_resampling: true #Reduce resampling rate when not need to avoid particle deprivation
 gui_publish_rate: 10.0
