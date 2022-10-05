@@ -8,8 +8,10 @@ update_min_d: 0.02
 update_min_a: 0.02
 resample_interval: 1 #Number of filter updates required before sampling
 transfrom_tolerance: 0.0 #Time with which to post-date the transform that is published
-recovery_alpha_slow: 0.1 #Slow average weight filter, help to decide when to recover by adding random poses
-recovery_alpha_fast: 0.1 #Fast average weight filter, help to decide when to recover by adding random poses
+recovery_alpha_slow: 0.03 #Slow average weight filter, help to decide when to recover by adding random poses
+recovery_alpha_fast: 0.02 #Fast average weight filter, help to decide when to recover by adding random poses
+beam_skip_distance: 0.9
+beam_skip_threshold: 1.0
 initial_pose_x: 5 #Initial pose x for partical distribution
 initial_pose_y: -4 #Initial pose y for partical distribution
 initial_pose_a: 3.14 #Initial poso a(yaw) for partical distributiongui_publish_rate: 10.0 #Publish rate at which scan and paths are published for visualization
@@ -19,22 +21,22 @@ selective_resampling: true #Reduce resampling rate when not need to avoid partic
 # Laser Model Parameters
 
 laser_max_beams: 60 #Evenly spaced beams in each scan to be used when updating the filter
-laser_z_hit: 0.99
+laser_z_hit: 0.45
 laser_z_short: 0.05
 laser_z_max: 0.05
-laser_z_rand: 0.01
-laser_sigma_hit: 0.8
+laser_z_rand: 0.95
+laser_sigma_hit: 0.65
 laser_lambda_short: 0.6
 laser_model_type: likelihood_field
 
 #Odom Parameters
 
 odom_model_type: diff-corrected
-odom_alpha1: 0.0002
-odom_alpha2: 0.0002
-odom_aplha3: 0.002
-odom_alpha4: 0.0002
-odom_alpha5: 0
+odom_alpha1: 0.00000081
+odom_alpha2: 0.0000071
+odom_alpha3: 0.02
+odom_alpha4: 0.00028
+odom_alpha5: 0.0
 odom_frame_id: odom
 base_frame_id: base_footprint
 global_frame_id: map
