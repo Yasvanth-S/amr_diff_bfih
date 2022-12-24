@@ -8,8 +8,8 @@ update_min_d: 0.02
 update_min_a: 0.02
 resample_interval: 1 #Number of filter updates required before sampling
 transfrom_tolerance: 0.0 #Time with which to post-date the transform that is published
-recovery_alpha_slow: 0.003 #Slow average weight filter, help to decide when to recover by adding random poses
-recovery_alpha_fast: 0.002 #Fast average weight filter, help to decide when to recover by adding random poses
+recovery_alpha_slow: 0.0001 #Slow average weight filter, help to decide when to recover by adding random poses
+recovery_alpha_fast: 0.0001 #Fast average weight filter, help to decide when to recover by adding random poses
 beam_skip_distance: 0.9
 beam_skip_threshold: 1.0
 initial_pose_x: 5 #Initial pose x for partical distribution
