@@ -7,7 +7,7 @@
 
 ## 1. Designing the URDF for our mobile robot:
 <p align="center">
-<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/URDF.gif"
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/blob/master/assets/URDF.gif"
 </p>
  
  - Simple description of our robot's dimensional Properties using default box and cirlces.
@@ -17,18 +17,18 @@
  
  - Using Gmapping to map the simulation environment.
 <p align="center">
-<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/Mapping.gif"
+<img src="https://github.com/Yasvanth-S/amr_diff_bfih/blob/master/assets/Mapping.gif"
 </p> 
 
 ## 3. Tuning AMCL for better Localization:
  - Use rqt_reconfigure to tune the appropriate parameters for our specific robot model.
 <p align="center">
-<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/amcl.gif"
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/blob/master/assets/amcl.gif"
 </p> 
 
 ## 4. Autonomous Navigation in simulation with tuned DWA Planner:
  - The appropriate params for local and global cost map has been tuned (see Rviz).
  - DWA params were tuned for our specific robot model.
  <p align="center">
-<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/a_nav.gif"
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/blob/master/assets/a_nav.gif"
 </p> 
