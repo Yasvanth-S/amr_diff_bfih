@@ -4,6 +4,7 @@
  - Additional IMU MPU-9250 for better yaw feedback filtered using ekf.
  - Within the core of the Robot is a NVIDIA Jetson Xavier AGX computing the whole process.
  - Completed Full Autonomous navigation using DWA Planner during an Internship Period of 1 month (HW and Simulation).
+ - By, [RoopanJKR](https://github.com/RoopanJKR/) and [Yasvanth S](https://github.com/yasvanth-s)
 
 ## 1. Designing the URDF for our mobile robot:
 <p align="center">
@@ -31,4 +32,10 @@
  - DWA params were tuned for our specific robot model.
  <p align="center">
 <img src="https://github.com/yasvanth-s/amr_diff_bfih/blob/master/assets/a_nav.gif"
-</p> 
+</p>
+
+## 5. Physical Robot Autonomous Running Demo using DWA planner:
+ - Here the robot is given consecutive waypoints as it reaches its current goal (usign move_base Action Client).
+ <p align="center">
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/blob/master/assets/a_nav.gif"
+</p>
