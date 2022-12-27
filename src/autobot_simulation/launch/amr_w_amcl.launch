@@ -27,10 +27,10 @@
 
   <!-- Gmapping pacakge for mapping  -->
 
-  <!-- <node name="gmapping" pkg="gmapping" type="slam_gmapping" output="screen"> -->
-  <!--   <remap from="scan" to="/scan" /> -->
-  <!--   <rosparam file="$(find autobot_simulation)/config/gmapping.yaml" command="load" /> -->
-  <!-- </node> -->
+  <!-- <node name="gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+    <remap from="scan" to="/scan" />
+    <rosparam file="$(find autobot_simulation)/config/gmapping.yaml" command="load" />
+  </node> -->
 
  <!-- Map Server -->
   <node pkg="map_server" name="map_server" type="map_server" args="'$(find autobot_simulation)/maps/area.yaml'" />

@@ -14,5 +14,8 @@
         <include>
             <uri>model://amr_world</uri>
         </include>
+        <include>
+            <uri>model://map_table</uri>
+        </include>
     </world>
 </sdf>

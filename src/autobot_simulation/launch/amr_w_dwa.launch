@@ -33,7 +33,7 @@
   <!-- </node> -->
 
  <!-- Map Server -->
-  <node pkg="map_server" name="map_server" type="map_server" args="'$(find autobot_simulation)/maps/area.yaml'" />
+  <node pkg="map_server" name="map_server" type="map_server" args="'$(find autobot_simulation)/maps/room_w_wall.yaml'" />
 
   <!-- AMCL node -->
   <node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=/scan" >
