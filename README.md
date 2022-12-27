@@ -17,5 +17,18 @@
  
  - Using Gmapping to map the simulation environment.
 <p align="center">
-<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/mapping.gif"
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/Mapping.gif"
+</p> 
+
+## 3. Tuning AMCL for better Localization:
+ - Use rqt_reconfigure to tune the appropriate parameters for our specific robot model.
+<p align="center">
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/amcl.gif"
+</p> 
+
+## 4. Autonomous Navigation in simulation with tuned DWA Planner:
+ - The appropriate params for local and global cost map has been tuned (see Rviz).
+ - DWA params were tuned for our specific robot model.
+ <p align="center">
+<img src="https://github.com/yasvanth-s/amr_diff_bfih/assets/a_nav.gif"
 </p> 
