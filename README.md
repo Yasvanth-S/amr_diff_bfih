@@ -4,7 +4,7 @@
  - Additional IMU MPU-9250 for better yaw feedback filtered using ekf.
  - Within the core of the Robot is a NVIDIA Jetson Xavier AGX computing the whole process.
  - Completed Full Autonomous navigation using DWA Planner during an Internship Period of 1 month (HW and Simulation).
- - Contributors: [RoopanJKR](https://github.com/RoopanJK) and [Yasvanth S](https://github.com/yasvanth-s)
+ - Contributors: [RoopanJK](https://github.com/RoopanJK) and [Yasvanth S](https://github.com/yasvanth-s)
 
 ## 1. Designing the URDF for our mobile robot:
 <p align="center">
